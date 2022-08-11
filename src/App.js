@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import './App.css';
+import { Menu } from './components/Menu';
+import { Navbar } from './components/Navbar';
+import { Container } from './components/styled/Container.styled';
+import { Main } from './components/styled/Main.styled';
+import { Wrapper } from './components/styled/Wrapper.styled';
+import { darkTheme, lightTheme } from './utils/Theme';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkMode? darkTheme: lightTheme}>
+      <Container>
+        <Menu title="Youtube" darkMode={darkMode} setDarkMode={setDarkMode}  />
+        <Main>
+          <Navbar />
+          <Wrapper>
+            <h1>heyyyyyy</h1>
+          </Wrapper>
+        </Main>
+      </Container>
+    </ThemeProvider>
   );
 }
 
