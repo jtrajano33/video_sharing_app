@@ -30,7 +30,7 @@ export const Item = styled.div`
     cursor: pointer;
     padding: 7.5px 5px;
     &:hover{
-        background: red;
+        background: ${({theme}) => theme.soft};
     }
 `
 export const Hr = styled.hr`
